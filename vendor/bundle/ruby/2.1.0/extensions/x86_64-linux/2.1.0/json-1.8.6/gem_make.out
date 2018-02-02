@@ -1,0 +1,12 @@
+/usr/bin/ruby2.1 extconf.rb
+creating Makefile
+
+make "DESTDIR=" clean
+make: Warning: File 'Makefile' has modification time 0,0041 s in the future
+make: AVERTISSEMENT : décalage d'horloge détecté. La construction peut être incomplète.
+
+make "DESTDIR="
+make: Nothing to be done for 'all'.
+
+make "DESTDIR=" install
+installing default libraries

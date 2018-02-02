@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nom:</strong>
+  <%= @user.nom %>
+</p>
+
+<p>
+  <strong>Prenom:</strong>
+  <%= @user.prenom %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Article(s) rédigé(s) par <%= @user.nom %> :</strong><br>
+  <% @posts.each do |post| %>
+    <% if @user.nom==post.nomAuteur%> 
+      <td><%= link_to post.titre, post_path(post.id) %></td><br>
+    <% end %>
+  <% end %>
+</p>
+
+<br><%= link_to 'Back', users_path %>

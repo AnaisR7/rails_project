@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Titre:</strong>
+  <%= @post.titre %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @post.date %>
+</p>
+
+<p>
+  <strong>Chapeau:</strong>
+  <%= @post.chapeau %>
+</p>
+
+<p> Auteur :
+  <%= @post.nomAuteur %>
+  <% @users.each do |user| %>
+    <% if user.nom==@post.nomAuteur %>
+      <%= link_to 'Auteurs:', user_path(user.id) %>
+    <% end %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Vignette:</strong>
+  <%= image_tag @post.vignette ,:class=>'img-responsive' %>
+</p>
+
+
+
+<% if user_signed_in? %>
+  <%= button_to 'Edit', edit_post_path(@post), :method => "get" %>
+<% end %>
+<%= link_to 'Back', posts_path %>
