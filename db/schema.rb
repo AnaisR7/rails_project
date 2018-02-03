@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180203184558) do
+ActiveRecord::Schema.define(version: 20180203215324) do
+
+  create_table "commentaires", force: true do |t|
+    t.text     "contenu"
+    t.date     "date"
+    t.string   "auteur"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "post_id"
+  end
+
+  add_index "commentaires", ["post_id"], name: "index_commentaires_on_post_id"
 
   create_table "posts", force: true do |t|
     t.string   "titre"
@@ -20,11 +31,8 @@ ActiveRecord::Schema.define(version: 20180203184558) do
     t.string   "vignette"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "auteur_id"
     t.string   "nomAuteur"
   end
-
-  add_index "posts", ["auteur_id"], name: "index_posts_on_auteur_id"
 
   create_table "users", force: true do |t|
     t.string   "nom"

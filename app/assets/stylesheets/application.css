@@ -26,7 +26,7 @@
  td.picture { width: 140px; }
  td.picture img { width: 140px; }
 
- body{
+ body, p{
  	font-family: 'Indie Flower', cursive;
  }
 
@@ -40,6 +40,9 @@
 
  a:visited{
  	color: #000;
+ }
+ a:hover{
+ 	background-color:#fff;
  }
 
  h1{

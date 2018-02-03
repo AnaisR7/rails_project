@@ -1,0 +1,29 @@
+<h1>Listing commentaires</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Contenu</th>
+      <th>Date</th>
+      <th>Auteur</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @commentaires.each do |commentaire| %>
+      <tr>
+        <td><%= commentaire.contenu %></td>
+        <td><%= commentaire.date %></td>
+        <td><%= commentaire.auteur %></td>
+        <td><%= link_to 'Show', commentaire %></td>
+        <td><%= link_to 'Edit', edit_commentaire_path(commentaire) %></td>
+        <td><%= link_to 'Destroy', commentaire, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Commentaire', new_commentaire_path %>

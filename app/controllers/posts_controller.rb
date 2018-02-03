@@ -14,6 +14,7 @@ class PostsController < ApplicationController
   def show
     @posts = Post.all
     @users = User.all
+    @commentaires = Commentaire.all
   end
 
   # GET /posts/new
