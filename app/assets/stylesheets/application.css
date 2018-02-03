@@ -26,13 +26,22 @@
  td.picture { width: 140px; }
  td.picture img { width: 140px; }
 
- h1, h2, h3, h4, h5{
+ body{
  	font-family: 'Indie Flower', cursive;
  }
- body{
- 	font-family: 'Montserrat', sans-serif;
+
+ .inline{
+	display : inline;
  }
 
- a:hover {
- 	text-decoration: none;
+ p{
+ 	font-size: 17px;
+ }
+
+ a:visited{
+ 	color: #000;
+ }
+
+ h1{
+ 	color: #666
  }

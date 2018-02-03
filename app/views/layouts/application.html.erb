@@ -6,8 +6,7 @@
 
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link href="https://fonts.googleapis.com/css?family=Indie+Flower|Rammetto+One" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Indie+Flower|Rammetto+One|Montserrat" rel="stylesheet">
 
 		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 		<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -18,18 +17,18 @@
 	  	<div class="container">
 			<div class="row">
 		  		<div class="col-md-6">
-				<h1>Blogo</h1>
-		  	</div>
-		  	<div class="col-md-offset-4 col-md-2">
-			  	<% if user_signed_in? %>
-					Connecté en tant que : <%= current_user.nom %><br>
-					<i class=" fa fa-sign-out"></i><%= link_to ' Déconnexion',destroy_user_session_path, :method => "get",method: :delete %>
-			  	<% else %>
-					<i class=" fa fa-sign-in"></i><%= link_to " Se connecter",new_user_session_path, :method => "get" %>
-			  	<% end %> 
-		  	</div>
-		</div>
-		<%= link_to 'Accueil', posts_path %>
+					<h1 class="inline">Blogo</h1><span class="a-home">- <%= link_to 'Accueil', posts_path %></span>
+			  	</div>
+			  	<div class="col-md-offset-4 col-md-2">
+				  	<% if user_signed_in? %>
+						Connecté en tant que : <%= current_user.nom %><br>
+						<i class=" fa fa-sign-out"></i><%= link_to ' Déconnexion',destroy_user_session_path, :method => "get",method: :delete %>
+				  	<% else %>
+						<i class=" fa fa-sign-in"></i><%= link_to " Se connecter",new_user_session_path, :method => "get" %>
+						<i class="fa fa-user-plus"></i> <%= link_to 'S\'inscrire', new_user_registration_path %>
+				  	<% end %> 
+			  	</div>
+			</div>
 	  	</div>
 	</div>
 

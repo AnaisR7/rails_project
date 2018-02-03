@@ -3,7 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .vignette{
-	margin-top : 28px;
+	margin-top : 20px;
+	margin-bottom : 20px;
 	text-align : center;
 }
 
@@ -22,15 +23,30 @@
     margin-bottom : 15px;
 }
 
-.datePubli{
+.auteur_date{
 	display : inline-block;
 	padding-left : 10px;
-}
-
-.postContent{
-	text-align : center;
+	font-size : 18px;
 }
 
 .postAction p{
 	display : inline-block;
+}
+
+.a-home{
+	margin-left : 10px;
+	font-family: 'Indie Flower', cursive;
+}
+
+.date{
+	padding-top : 35px;
+}
+
+.newPost{
+	border: 2px solid #1ebf31;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #fff !important;
+    font-weight: bold;
+    background-color: #1ebf31;
 }

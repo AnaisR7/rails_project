@@ -1,40 +1,53 @@
 <p id="notice"><%= notice %></p>
-
+<br>
+<% if user_signed_in? %>
+    <%= link_to 'Nouveau post', new_post_path, :class => 'newPost' %>
+<% end %>
 <% @posts.each do |post| %>
 <div class="row bloc-post">
-    <div class="col-md-6">
+    <div class="col-md-12">
         <div class="row">
-            <div class="col-md-12">
-                <h1><%= link_to post.titre, post, :data =>  {:shadow => post.titre} %></h1>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1><%= link_to post.titre, post %></h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <!-- Automatiser id user dans path --> 
+                        <% @users.each do |auteur| %>
+                            <% if post.nomAuteur == auteur.nom %>
+                                <i class="fa fa-user"></i>
+                                <p class="auteur_date"><%= link_to post.nomAuteur, user_path(auteur.id) %></p>
+                            <% end %>
+                        <% end %>
+                    </div>
+                    <div class="col-md-3">
+                        <i class="fa fa-calendar"></i><p class="auteur_date"><%= post.date %></p>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-12 ">
+                        <p><%= post.chapeau %> </p>
+                    </div>
+                </div>
+            </div>    
+            <div class="col-md-4 imgContentSeparator vignette">
+                <%=image_tag post.vignette.small, :class => 'vignette-rounded' %>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
-                <!-- Automatiser id user dans path -->   
-                <h4><%= link_to post.nomAuteur, user_path(4) %></h4>
-            </div>
-            <div class="col-md-6">
-                <i class="fa fa-calendar"></i><h4 class="datePubli"><%= post.date %></h4>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 postContent">
-                <p><%= post.chapeau %> </p>
+            <div class="col-md-12 postAction">
+                <% if user_signed_in? && current_user.nom==post.nomAuteur %> 
+                    <i class="fa fa-pencil"></i>
+                    <p><%= link_to 'Editer', edit_post_path(post) %></p>
+                    <i class="fa fa-trash"></i>
+                    <p><%= link_to 'Supprimer', post, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+                <% end %>
             </div>
         </div>
-    </div>
-    <div class="col-md-6 imgContentSeparator vignette">
-        <%=image_tag post.vignette.small, :class => 'vignette-rounded' %>
-    </div>
-
-    <div class="postAction">
-        <% if user_signed_in? && current_user.nom==post.nomAuteur %> 
-            <%= link_to 'Editer', edit_post_path(post) %>
-            <%= link_to 'Supprimer', post, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
-        <% if user_signed_in? %>
-            <%= link_to 'Nouveau post', new_post_path %>
-        <% end %>
     </div>
 </div>
 <% end %>
