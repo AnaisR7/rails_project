@@ -25,3 +25,14 @@
  th { border-bottom: 1px solid #DDD !important; }
  td.picture { width: 140px; }
  td.picture img { width: 140px; }
+
+ h1, h2, h3, h4, h5{
+ 	font-family: 'Indie Flower', cursive;
+ }
+ body{
+ 	font-family: 'Montserrat', sans-serif;
+ }
+
+ a:hover {
+ 	text-decoration: none;
+ }
