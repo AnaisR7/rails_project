@@ -7,6 +7,9 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
     @users = User.all
+
+    #Pagination
+    @postsP = Post.page(1).per(10)
   end
 
   # GET /posts/1

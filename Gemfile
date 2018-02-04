@@ -35,6 +35,9 @@ gem 'rmagick'
 #Gem permettant de gérer la connection et l'authentifiaction des users
 gem 'devise'
 
+#gem permettant la pagination
+gem 'kaminari' 
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

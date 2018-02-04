@@ -52,4 +52,9 @@
 </div>
 <% end %>
 
+<%= paginate @postsP %>
+<% @postsP.each do |page| %>
+  <p><%= page %></p>
+<% end %>
+
 
