@@ -1,47 +1,75 @@
 <p id="notice"><%= notice %></p>
+<div class="row post">
+  	<div class="col-md-4">
+		<div class="row">
+	  		<div class="col-md-12">
+				<h2></i> <%= @post.titre %> </h2>
+	  		</div>
+		</div>
+		<div class="row">
+	  		<div class="col-md-6">
+		  			<% @users.each do |user| %>
+						<% if user.nom==@post.nomAuteur %>
+			  				<p><i class="fa fa-child"></i> <%= link_to @post.nomAuteur, user_path(user.id) %></p>
+						<% end %>
+		  			<% end %>
+				</p>
+	  		</div>
+		  	<div class="col-md-6">
+				<p>
+			  		<i class="fa fa-calendar"></i>
+			  		<%= @post.date.strftime("%m %b %Y") %>
+				</p>
+		  	</div>
+		</div>
+		<div class="row marginT10">
+		  	<div class="col-md-12">
+		  		<p><i class="fa fa-align-left"></i> Résumé : </p>
+		  		<p class="center"><%= @post.chapeau %></p>
+		  	</div>
+		</div>
+	</div>
+  	<div class="col-md-8">
+	  	<%= image_tag @post.vignette ,:class=>'img-responsive vignette-rounded' %>
+  	</div>
+</div>
+<div class="row edit">
+  	<div class="col-md-12">
+		<% if user_signed_in? && current_user.nom==@post.nomAuteur %> 
+	  		<%= button_to 'Edit', edit_post_path(@post), :method => "get", :class => "editPost" %>
+	  		<%= button_to 'Supprimer', @post, method: :delete, data: { confirm: 'Êtes-vous sur ?' } %>
+		<% end %>
+  	</div>
+</div>
 
-<p>
-  <strong>Titre:</strong>
-  <%= @post.titre %>
-</p>
+<hr>
 
-<p>
-  <strong>Date:</strong>
-  <%= @post.date %>
-</p>
-
-<p>
-  <strong>Chapeau:</strong>
-  <%= @post.chapeau %>
-</p>
-
-<p>
-  <% @users.each do |user| %>
-    <% if user.nom==@post.nomAuteur %>
-      <%= link_to 'Auteurs:', user_path(user.id) %>
-      <%= @post.nomAuteur %>
-    <% end %>
-  <% end %>
-</p>
-
-<p>
-  <strong>Vignette:</strong>
-  <%= image_tag @post.vignette ,:class=>'img-responsive' %>
-</p>
-
-<% if user_signed_in? %>
-  <%= button_to 'Edit', edit_post_path(@post), :method => "get" %>
-<% end %>
-
-
+<h2>Les com's</h2>
 
 <% @commentaires.each do |commentaire| %>
-  <% if commentaire.post_id == @post.id %>
-    <strong>Commentaire de <%= commentaire.auteur %>:</strong><br>
-    <td><%= commentaire.contenu %> </td><br>
-    <strong>Posté le : </strong><%= commentaire.date %><br><br>
-    <% end %>
-<% end %> <br><br>
+	 	<% if commentaire.post_id == @post.id %>
+		<div class="row comShow">
+			<div class="col-md-6 borderCom">
+			 	<div class="row">
+			 		<div class="col-md-4 col-sm-6">
+					<p><%= commentaire.auteur %></p>
+			 		</div>
+			 		<div class="col-md-4 col-sm-6">
+			 			<p><i class="fa fa-calendar"></i> <%= commentaire.date %></p>
+			 		</div>		 	
+			 	</div>
+			 	<div class="row">
+			 		<div class="col-md-12">
+						<p><%= commentaire.contenu %> </p>		 			
+			 		</div>
+			 	</div>
+			</div>
+		</div>
+		<% end %>		
+<% end %>
 
-
-<%= render template: '/commentaires/new' %>
+<% if user_signed_in? %>
+	<hr>
+	<h2>Ajouter un commentaire</h2>
+	<%= render template: '/commentaires/_form.html.erb' %>
+<% end %>

@@ -43,8 +43,17 @@
  }
  a:hover{
  	background-color:#fff;
+ 	color: #000;
  }
 
  h1{
  	color: #666
+ }
+
+ i{
+ 	color: #1ebf31;
+ }
+
+ .displayN{
+ 	display: none;
  }

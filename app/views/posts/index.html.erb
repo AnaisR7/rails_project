@@ -15,7 +15,6 @@
                 </div>
                 <div class="row">
                     <div class="col-md-2">
-                        <!-- Automatiser id user dans path --> 
                         <% @users.each do |auteur| %>
                             <% if post.nomAuteur == auteur.nom %>
                                 <i class="fa fa-user"></i>
@@ -24,13 +23,13 @@
                         <% end %>
                     </div>
                     <div class="col-md-3">
-                        <i class="fa fa-calendar"></i><p class="auteur_date"><%= post.date.to_formatted_s(:rfc822) %></p>
+                        <i class="fa fa-calendar"></i><p class="auteur_date"><%= post.date.strftime("%m %b %Y") %></p>
                     </div>
                 </div>
                 <br>
                 <div class="row">
                     <div class="col-md-12 ">
-                        <p><%= post.chapeau %> </p>
+                        <p><%= post.chapeau.truncate(300, separator: ' ') %> </p>
                     </div>
                 </div>
             </div>    
@@ -44,7 +43,7 @@
                     <i class="fa fa-pencil"></i>
                     <p><%= link_to 'Editer', edit_post_path(post) %></p>
                     <i class="fa fa-trash"></i>
-                    <p><%= link_to 'Supprimer', post, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+                    <p><%= link_to 'Supprimer', post, method: :delete, data: { confirm: 'Sur ?' } %></p>
                 <% end %>
             </div>
         </div>
@@ -52,9 +51,10 @@
 </div>
 <% end %>
 
-<%= paginate @postsP %>
-<% @postsP.each do |page| %>
-  <p><%= page %></p>
-<% end %>
+<div class="row">
+    <div class="col-md-12 page">
+        <%= paginate @posts %>
+    </div>
+</div>
 
 

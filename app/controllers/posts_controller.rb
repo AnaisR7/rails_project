@@ -5,11 +5,8 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.order('created_at DESC').page(params[:page]).per(2)
     @users = User.all
-
-    #Pagination
-    @postsP = Post.page(1).per(10)
   end
 
   # GET /posts/1
@@ -18,6 +15,7 @@ class PostsController < ApplicationController
     @posts = Post.all
     @users = User.all
     @commentaires = Commentaire.all
+    @commentaire = Commentaire.new
   end
 
   # GET /posts/new

@@ -9,12 +9,11 @@ class CommentairesController < ApplicationController
   end
 
   def show
-    respond_with(@commentaire)
   end
 
   def new
+    @post = Post.find(params[:post_id])
     @commentaire = Commentaire.new
-    respond_with(@commentaire)
   end
 
   def edit
@@ -22,18 +21,21 @@ class CommentairesController < ApplicationController
 
   def create
     @commentaire = Commentaire.new(commentaire_params)
-    @commentaire.save
-    respond_with(@commentaire)
+    if @commentaire.save
+      redirect_to post_path(@commentaire.post_id)
+    end
   end
 
   def update
-    @commentaire.update(commentaire_params)
-    respond_with(@commentaire)
+    @post = Post.find(params[:post_id])
+    if@commentaire.update(commentaire_params)
+      redirect_to post_path(@commentaire.post_id)
+    end
   end
 
   def destroy
     @commentaire.destroy
-    respond_with(@commentaire)
+    redirect_to posts_path()
   end
 
   private
@@ -42,6 +44,6 @@ class CommentairesController < ApplicationController
     end
 
     def commentaire_params
-      params.require(:commentaire).permit(:contenu, :date, :auteur)
+      params.require(:commentaire).permit(:contenu, :date, :auteur, :post_id)
     end
 end
