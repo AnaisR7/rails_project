@@ -23,7 +23,7 @@
     <div class="col-md-3 col-xs-6">
       <div class="field">
         <%= f.label :auteur %><br>
-        <%= f.text_field :auteur, :class => 'form-control' %>
+        <%= f.text_field :auteur, :class => 'form-control', :value => current_user.nom %>
       </div>      
     </div>
   </div>

@@ -14,6 +14,7 @@ class PostsController < ApplicationController
   def show
     @posts = Post.all
     @users = User.all
+    @nbPotsts = Post.count
     @commentaires = Commentaire.all
     @commentaire = Commentaire.new
   end

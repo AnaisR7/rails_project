@@ -17,18 +17,18 @@
     <%= f.text_field :titre, :class => 'form-control' %><br>
 
     <%= f.label :date %>
-    <%= f.date_select :date, :class => 'form-control'%><br>
+    <%= f.date_select :date, :class => 'form-control' %><br>
 
-    <%= f.label :chapeau %>
+    <%= f.label 'Résumé' %>
     <%= f.text_area :chapeau, :class => 'form-control'%><br>
 
     <%= f.label :vignette %><br>
     <%= f.file_field :vignette, :class => 'form-control'%><br>
 
-    <%= f.label :nomAuteur %><br>
-    <%= f.text_field :nomAuteur, :class => 'form-control' %><br>
+    <%= f.label 'Auteur' %><br>
+    <%= f.text_field :nomAuteur, :class => 'form-control', :value => current_user.nom %><br>
   </div>
   <div class="actions">
-    <%= f.submit "Créer le post" %>
+    <%= f.submit "Enregistrer le post", :class => 'btnGreen' %>
   </div>
 <% end %>

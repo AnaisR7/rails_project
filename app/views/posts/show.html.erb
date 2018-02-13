@@ -42,34 +42,44 @@
   	</div>
 </div>
 
-<hr>
+<!-- End container -->
+</div>
 
-<h2>Les com's</h2>
-
-<% @commentaires.each do |commentaire| %>
-	 	<% if commentaire.post_id == @post.id %>
-		<div class="row comShow">
-			<div class="col-md-6 borderCom">
-			 	<div class="row">
-			 		<div class="col-md-4 col-sm-6">
-					<p><%= commentaire.auteur %></p>
-			 		</div>
-			 		<div class="col-md-4 col-sm-6">
-			 			<p><i class="fa fa-calendar"></i> <%= commentaire.date %></p>
-			 		</div>		 	
-			 	</div>
-			 	<div class="row">
-			 		<div class="col-md-12">
-						<p><%= commentaire.contenu %> </p>		 			
-			 		</div>
-			 	</div>
+<div class="container-fluid bg-containerF">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2>Les com's</h2>
+				<% @commentaires.each do |commentaire| %>
+				 	<% if commentaire.post_id == @post.id %>
+						<div class="row comShow">
+							<div class="col-md-6 borderCom">
+							 	<div class="row">
+							 		<div class="col-md-4 col-sm-6">
+									<p><%= commentaire.auteur %></p>
+							 		</div>
+							 		<div class="col-md-4 col-sm-6">
+							 			<p><i class="fa fa-calendar"></i> <%= commentaire.date %></p>
+							 		</div>		 	
+							 	</div>
+							 	<div class="row">
+							 		<div class="col-md-12">
+										<p><%= commentaire.contenu %> </p>		 			
+							 		</div>
+							 	</div>
+							</div>
+						</div>
+					<% end %>		
+				<% end %>
 			</div>
 		</div>
-		<% end %>		
-<% end %>
+	</div>
+</div>
+
+<!-- Restart container -->
+<div class="container">
 
 <% if user_signed_in? %>
-	<hr>
 	<h2>Ajouter un commentaire</h2>
 	<%= render template: '/commentaires/_form.html.erb' %>
 <% end %>
