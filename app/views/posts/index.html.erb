@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 <br>
 <% if user_signed_in? %>
-    <%= link_to 'Nouveau post', new_post_path, :class => 'newPost' %>
+    <%= link_to 'Nouveau post', new_post_path, :class => 'btnGreen' %>
 <% end %>
 <% @posts.each do |post| %>
 <div class="row bloc-post">
@@ -43,7 +43,7 @@
                     <i class="fa fa-pencil"></i>
                     <p><%= link_to 'Editer', edit_post_path(post) %></p>
                     <i class="fa fa-trash"></i>
-                    <p><%= link_to 'Supprimer', post, method: :delete, data: { confirm: 'Sur ?' } %></p>
+                    <p><%= link_to 'Supprimer', post, method: :delete, data: { confirm: 'Êtes-vous sur ?' } %></p>
                 <% end %>
             </div>
         </div>

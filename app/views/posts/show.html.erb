@@ -36,8 +36,8 @@
 <div class="row edit">
   	<div class="col-md-12">
 		<% if user_signed_in? && current_user.nom==@post.nomAuteur %> 
-	  		<%= button_to 'Edit', edit_post_path(@post), :method => "get", :class => "editPost" %>
-	  		<%= button_to 'Supprimer', @post, method: :delete, data: { confirm: 'Êtes-vous sur ?' } %>
+	  		<%= button_to 'Edit', edit_post_path(@post), :method => "get", :class => "btnGrey" %>
+	  		<%= button_to 'Supprimer', @post, method: :delete, data: { confirm: 'Êtes-vous sur ?' }, :class => 'btnGrey'  %>
 		<% end %>
   	</div>
 </div>

@@ -28,9 +28,7 @@ class CommentairesController < ApplicationController
 
   def update
     @post = Post.find(params[:post_id])
-    if@commentaire.update(commentaire_params)
-      redirect_to post_path(@commentaire.post_id)
-    end
+    @commentaire.update(commentaire_params)
   end
 
   def destroy

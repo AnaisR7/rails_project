@@ -16,9 +16,9 @@
         <td><%= commentaire.contenu %></td>
         <td><%= commentaire.date %></td>
         <td><%= commentaire.auteur %></td>
-        <td><%= link_to 'Show', commentaire %></td>
-        <td><%= link_to 'Edit', edit_commentaire_path(commentaire) %></td>
-        <td><%= link_to 'Destroy', commentaire, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Voir', commentaire %></td>
+        <td><%= link_to 'Modifier', edit_commentaire_path(commentaire) %></td>
+        <td><%= link_to 'Supprimer', commentaire, method: :delete, data: { confirm: 'Êtes-vous sur ?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Commentaire', new_commentaire_path %>
+<%= link_to 'Nouveau commentaire', new_commentaire_path %>

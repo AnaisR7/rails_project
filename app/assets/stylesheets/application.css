@@ -57,3 +57,7 @@
  .displayN{
  	display: none;
  }
+
+ .displayInline{
+ 	display: inline-block;
+ }

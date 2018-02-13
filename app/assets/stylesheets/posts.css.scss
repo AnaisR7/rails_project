@@ -42,7 +42,7 @@
 	padding-top : 35px;
 }
 
-.newPost{
+.btnGreen{
 	border: 2px solid #1ebf31;
     padding: 5px 10px;
     border-radius: 5px;
@@ -51,8 +51,9 @@
     background-color: #1ebf31;
 }
 
-.newPost:hover{
-	color: #1ebf31 !important
+.btnGreen:hover{
+	color: #1ebf31 !important;
+	background-color: #fff
 }
 
 .page, .page a{
@@ -66,7 +67,7 @@
 	font-size: 16px;
 }
 
-.editPost{
+.btnGrey{
 	border: 2px solid #ccc;
 	padding: 7px 50px;
     border-radius: 5px;
@@ -75,13 +76,17 @@
     font-size: 16px;
 }
 
-.editPost:hover{
+.btnGrey:hover{
 	color: #fff;
 }
 
 .edit{
 	margin-top: 20px;
 	text-align: center;
+}
+
+.edit form{
+	display: inline-block;
 }
 
 .post{
@@ -115,6 +120,9 @@
 }
 
 .borderCom{
-	border: 1px solid #ccc;
+	border: 1px solid #f5f5ef;
 	border-radius: 25px;
+	background-color: #f5f5ef;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
